@@ -1,0 +1,12 @@
+{
+  "name": "糖果爱切小水果",
+  "short_name": "糖果切水果",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffe6f0",
+  "theme_color": "#ff8fb1",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

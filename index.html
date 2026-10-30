@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#ff8fb1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="糖果爱切小水果">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <title>糖果爱切小水果</title>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="pup" viewBox="0 0 100 100">
+      <ellipse cx="22" cy="46" rx="13" ry="24" fill="#8b5a2b" transform="rotate(20 22 46)"/>
+      <ellipse cx="78" cy="46" rx="13" ry="24" fill="#8b5a2b" transform="rotate(-20 78 46)"/>
+      <circle cx="50" cy="54" r="32" fill="#e8b27a"/>
+      <path d="M21 42 Q50 4 79 42 Z" fill="currentColor"/>
+      <rect x="17" y="38" width="66" height="8" rx="4" fill="currentColor" opacity=".8"/>
+      <circle cx="50" cy="27" r="6" fill="#ffd84d"/>
+      <ellipse cx="50" cy="68" rx="17" ry="13" fill="#fff3e0"/>
+      <circle cx="38" cy="56" r="5" fill="#2b2b2b"/>
+      <circle cx="62" cy="56" r="5" fill="#2b2b2b"/>
+      <circle cx="39.6" cy="54.4" r="1.7" fill="#fff"/>
+      <circle cx="63.6" cy="54.4" r="1.7" fill="#fff"/>
+      <ellipse cx="50" cy="63" rx="5" ry="3.5" fill="#2b2b2b"/>
+      <path d="M44 70 Q50 76 56 70" stroke="#2b2b2b" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="29" cy="66" r="4" fill="#ff8fb1" opacity=".7"/>
+      <circle cx="71" cy="66" r="4" fill="#ff8fb1" opacity=".7"/>
+    </symbol>
+  </svg>
+
+  <canvas id="game"></canvas>
+
+  <div class="hud">
+    <div class="pill score">🍉 <span id="score">0</span></div>
+    <div class="pill lives" id="lives"></div>
+    <div class="hud-btns">
+      <button id="soundBtn" class="icon-btn" aria-label="声音">🔊</button>
+      <button id="pauseBtn" class="icon-btn" aria-label="暂停">⏸</button>
+    </div>
+  </div>
+
+  <div id="startScreen" class="overlay">
+    <div class="card">
+      <div class="mascots">
+        <svg class="mascot" style="color:#4aa8ff"><use href="#pup"/></svg>
+        <svg class="mascot delay" style="color:#ff5a5f"><use href="#pup"/></svg>
+      </div>
+      <h1 class="title">糖果爱切小水果</h1>
+      <div class="fruit-row"><span>🍉</span><span>🍓</span><span>🍊</span><span>🍌</span><span>🍇</span></div>
+      <p>滑动手指切水果！<br>切到 🦴 骨头加 5 分，小心 💣 炸弹哦～</p>
+      <p class="best">🏆 最高分：<span id="bestStart">0</span></p>
+      <button id="startBtn" class="big-btn">开始游戏</button>
+    </div>
+  </div>
+
+  <div id="pauseScreen" class="overlay hidden">
+    <div class="card">
+      <svg class="mascot" style="color:#4cd39b"><use href="#pup"/></svg>
+      <h2>休息一下～</h2>
+      <button id="resumeBtn" class="big-btn">继续</button>
+      <button id="restartBtn" class="ghost-btn">重新开始</button>
+    </div>
+  </div>
+
+  <div id="overScreen" class="overlay hidden">
+    <div class="card">
+      <svg class="mascot big" style="color:#ff8fb1"><use href="#pup"/></svg>
+      <h2>游戏结束</h2>
+      <p class="final">得分 <span id="finalScore">0</span></p>
+      <p id="overBest" class="best"></p>
+      <button id="againBtn" class="big-btn">再玩一次</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
